@@ -327,6 +327,22 @@
       color: var(--muted); letter-spacing: 0.05em;
     }
 
+    .cert-link {
+      text-decoration: none;
+      color: inherit;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .cert-link:hover {
+      border-color: rgba(0,229,160,0.4);
+      transform: translateY(-4px);
+    }
+
+    .cert-link:hover .cert-name {
+      color: var(--accent);
+    }
+
     /* AI SECTION */
     #ai { background: var(--bg); position: relative; overflow: hidden; }
     #ai::before {
@@ -807,20 +823,28 @@
         </div>
       </div>
       <div class="cert-list">
-        <div class="cert-item">
+
+        <!-- PYTHON CERT -->
+        <a href="https://drive.google.com/file/d/117JOaBlmZ1PkCy1uaQXy4lNQcp4nqw_3/view?usp=drivesdk" 
+          target="_blank" 
+          class="cert-item cert-link">
           <div class="cert-icon">🐍</div>
           <div>
             <div class="cert-name">Python Programming Certification</div>
             <div class="cert-issuer">Google</div>
           </div>
-        </div>
-        <div class="cert-item">
+        </a>
+
+        <!-- GENERATIVE AI CERT -->
+        <a href="https://drive.google.com/file/d/16RkuWa3p1tG4B8ZGH6439eT9B4PiaW0I/view?usp=drivesdk" 
+          target="_blank" 
+          class="cert-item cert-link">
           <div class="cert-icon">🤖</div>
           <div>
             <div class="cert-name">Generative AI & ChatGPT Certification</div>
             <div class="cert-issuer">GUVI</div>
           </div>
-        </div>
+        </a>
       </div>
     </div>
   </section>
@@ -885,11 +909,16 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="footer-copy">© 2025 Hadhiludeen Z.</div>
+    <!-- Dynamic year: auto-updates every year, never needs manual editing -->
+    <div class="footer-copy">© <span id="footerYear"></span> Hadhiludeen Z.</div>
     <a href="#hero" class="footer-back">Back to Top ↑</a>
   </footer>
 
   <script>
+
+    // ── Dynamic Footer Year ────────────────────────────────────────────
+    document.getElementById('footerYear').textContent = new Date().getFullYear();
+    
     // Cursor
     const cursor = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
